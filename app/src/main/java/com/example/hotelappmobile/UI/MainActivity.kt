@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         listener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.loginFragment){
+                //TODO("Implement logic for checking if the login fragment is the current fragment in order to set menu visibility to none!")
                 sideMenu.visibility = View.INVISIBLE
             }
         }
