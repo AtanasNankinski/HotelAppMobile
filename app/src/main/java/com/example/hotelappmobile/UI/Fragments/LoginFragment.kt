@@ -20,7 +20,7 @@ class LoginFragment : Fragment() {
         val view: View = binding.root
 
         binding.btnLogin.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateFromLoginToHome)
+
         }
 
         return view

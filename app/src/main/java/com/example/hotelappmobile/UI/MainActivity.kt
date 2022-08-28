@@ -20,6 +20,7 @@ import com.example.hotelappmobile.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val drawerLayout = binding.drawerLayout
+        drawerLayout = binding.drawerLayout
         val navView = binding.NavigationView
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
