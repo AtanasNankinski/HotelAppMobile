@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import com.example.hotelappmobile.R
 import com.example.hotelappmobile.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,7 +19,9 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
-
+        binding.btnLogout.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.navigateFromHomeToLogin)
+        }
 
         return view
     }
