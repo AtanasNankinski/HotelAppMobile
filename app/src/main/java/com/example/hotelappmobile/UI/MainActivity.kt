@@ -3,7 +3,9 @@ package com.example.hotelappmobile.UI
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -17,10 +19,7 @@ import com.example.hotelappmobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var navController: NavController
-    lateinit var appBarConfiguration: AppBarConfiguration
-    lateinit var drawerLayout: DrawerLayout
-    lateinit var listener: NavController.OnDestinationChangedListener
+    lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,25 +27,29 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        navController = navHostFragment.navController
-        drawerLayout = binding.root
-        val sideMenu = binding.nvDrawer
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        val drawerLayout = binding.drawerLayout
+        val navView = binding.NavigationView
 
-        binding.nvDrawer.setupWithNavController(navController)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
-        listener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.loginFragment){
-                //TODO("Implement logic for checking if the login fragment is the current fragment in order to set menu visibility to none!")
-                sideMenu.visibility = View.INVISIBLE
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.loginFragment -> println("Login button pressed")
+                R.id.homeFragment -> println("Home button pressed")
             }
+
+            true
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.fragmentContainerView)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)){
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
