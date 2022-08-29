@@ -7,6 +7,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -15,6 +18,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.hotelappmobile.R
+import com.example.hotelappmobile.UI.Fragments.HomeFragment
+import com.example.hotelappmobile.UI.Fragments.RegisterOwnerFragment
 import com.example.hotelappmobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -38,9 +43,11 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         navView.setNavigationItemSelectedListener {
+            it.isChecked = true
+
             when(it.itemId){
-                R.id.loginFragment -> println("Login button pressed")
-                R.id.homeFragment -> println("Home button pressed")
+                R.id.homeFragment -> replaceFragment(HomeFragment(), "Home")
+                R.id.registerOwnerFragment -> replaceFragment(RegisterOwnerFragment(), "Register Owner")
             }
 
             true
@@ -52,5 +59,15 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun replaceFragment(fragment: Fragment, title: String){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        fragmentTransaction.replace(binding.frameLayout.id, fragment)
+        fragmentTransaction.commit()
+        drawerLayout.closeDrawers()
+        setTitle(title)
     }
 }

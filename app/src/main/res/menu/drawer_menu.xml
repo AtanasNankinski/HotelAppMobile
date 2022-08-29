@@ -3,12 +3,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/loginFragment"
-            android:title="Login"
-            />
-        <item
             android:id="@+id/homeFragment"
             android:title="Home"
-            />
+            android:icon="@drawable/ic_home"/>
+        <item
+            android:id="@+id/registerOwnerFragment"
+            android:title="Register Owner"
+            android:icon="@drawable/ic_register"/>
     </group>
 </menu>
