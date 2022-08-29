@@ -19,10 +19,6 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
-        binding.btnLogout.setOnClickListener {
-
-        }
-
         return view
     }
 }

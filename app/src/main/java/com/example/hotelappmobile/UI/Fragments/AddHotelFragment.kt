@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hotelappmobile.databinding.FragmentRegisterOwnerBinding
+import com.example.hotelappmobile.R
 
-class RegisterOwnerFragment : Fragment() {
-    lateinit var binding: FragmentRegisterOwnerBinding
-
+class AddHotelFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentRegisterOwnerBinding.inflate(inflater, container, false)
-        val view: View = binding.root
-
-        return view
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_add_hotel, container, false)
     }
 }

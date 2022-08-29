@@ -3,12 +3,28 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/homeFragment"
-            android:title="Home"
+            android:id="@+id/itemHome"
+            android:title="@string/menu_home"
             android:icon="@drawable/ic_home"/>
         <item
-            android:id="@+id/registerOwnerFragment"
-            android:title="Register Owner"
+            android:id="@+id/itemRegisterOwner"
+            android:title="@string/menu_register_owner"
             android:icon="@drawable/ic_register"/>
+        <item
+            android:id="@+id/itemRegisterManager"
+            android:title="@string/menu_register_manager"
+            android:icon="@drawable/ic_register"/>
+        <item
+            android:id="@+id/itemRegisterReceptionist"
+            android:title="@string/menu_register_receptionist"
+            android:icon="@drawable/ic_register"/>
+        <item
+            android:id="@+id/itemAddHotel"
+            android:title="@string/menu_add_hotel"
+            android:icon="@drawable/ic_hotel"/>
+        <item
+            android:id="@+id/itemLogout"
+            android:title="@string/menu_logout"
+            android:icon="@drawable/ic_logout"/>
     </group>
 </menu>

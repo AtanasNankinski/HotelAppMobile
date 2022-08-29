@@ -1,5 +1,6 @@
 package com.example.hotelappmobile.UI
 
+import android.content.Intent
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,20 +19,21 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.hotelappmobile.R
-import com.example.hotelappmobile.UI.Fragments.HomeFragment
-import com.example.hotelappmobile.UI.Fragments.RegisterOwnerFragment
+import com.example.hotelappmobile.UI.Fragments.*
 import com.example.hotelappmobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
+    lateinit var loginIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        loginIntent = Intent(this, LoginActivity::class.java)
 
         drawerLayout = binding.drawerLayout
         val navView = binding.NavigationView
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+        // Setting the Home fragment as first fragment
+        replaceFragment(HomeFragment(), getString(R.string.home))
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -46,8 +50,12 @@ class MainActivity : AppCompatActivity() {
             it.isChecked = true
 
             when(it.itemId){
-                R.id.homeFragment -> replaceFragment(HomeFragment(), "Home")
-                R.id.registerOwnerFragment -> replaceFragment(RegisterOwnerFragment(), "Register Owner")
+                R.id.itemHome -> replaceFragment(HomeFragment(), getString(R.string.home))
+                R.id.itemRegisterOwner -> replaceFragment(RegisterOwnerFragment(), getString(R.string.register_owner))
+                R.id.itemRegisterManager -> replaceFragment(RegisterManagerFragment(), getString(R.string.register_manager))
+                R.id.itemRegisterReceptionist -> replaceFragment(RegisterReceptionistFragment(), getString(R.string.register_receptionist))
+                R.id.itemAddHotel -> replaceFragment(AddHotelFragment(), getString(R.string.add_hotel))
+                R.id.itemLogout -> startActivity(loginIntent)
             }
 
             true
