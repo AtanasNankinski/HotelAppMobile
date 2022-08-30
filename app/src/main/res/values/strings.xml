@@ -17,4 +17,7 @@
     <string name="register_manager">Register Manager</string>
     <string name="register_receptionist">Register Receptionist</string>
     <string name="add_hotel">Add Hotel</string>
+    <!-- Login screen strings -->
+    <string name="password_login">Password</string>
+    <string name="email_login">Email</string>
 </resources>
