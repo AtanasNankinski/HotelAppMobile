@@ -20,4 +20,6 @@
     <!-- Login screen strings -->
     <string name="password_login">Password</string>
     <string name="email_login">Email</string>
+    <!-- Register Owner screen strings -->
+    <string name="error_text">Error getting the hotel data!</string>
 </resources>
