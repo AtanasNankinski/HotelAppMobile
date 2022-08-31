@@ -10,4 +10,8 @@ class AuthRepository {
     suspend fun login(body: LoginBody): Response<LoginResponse> {
         return RetrofitInstance.authApi.login(body)
     }
+
+    suspend fun logout(token: String): Response<Any> {
+        return RetrofitInstance.authApi.logout(token)
+    }
 }

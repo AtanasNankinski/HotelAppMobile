@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
 
         // Calling methods and implementing views
-        getUserCredentials(intent)
+        getUserCredentials(intent, viewModel)
         setHeaderElements(user, navView)
         replaceFragment(HomeFragment(), getString(R.string.home))
         drawerLayout.addDrawerListener(toggle)
@@ -60,7 +60,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemRegisterManager -> replaceFragment(RegisterManagerFragment(), getString(R.string.register_manager))
                 R.id.itemRegisterReceptionist -> replaceFragment(RegisterReceptionistFragment(), getString(R.string.register_receptionist))
                 R.id.itemAddHotel -> replaceFragment(AddHotelFragment(), getString(R.string.add_hotel))
-                R.id.itemLogout -> startActivity(loginIntent)
+                R.id.itemLogout -> {
+                    viewModel.logout()
+                    viewModel.user.value!!.token
+                    startActivity(loginIntent)
+                }
             }
 
             true
@@ -87,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         setTitle(title)
     }
 
-    private fun getUserCredentials(intent: Intent){
+    private fun getUserCredentials(intent: Intent, viewModel: MainViewModel){
         val id = intent.getIntExtra("id", 0)
         val userName = intent.getStringExtra("user_name")
         val email = intent.getStringExtra("email")
@@ -95,6 +99,7 @@ class MainActivity : AppCompatActivity() {
         val token = intent.getStringExtra("token")
 
         user = FullUser(id, userName!!, email!!, userType, token!!)
+        viewModel.user.value = user
     }
 
     private fun setHeaderElements(user: FullUser, navView: NavigationView){
