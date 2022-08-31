@@ -1,5 +1,6 @@
 package com.example.hotelappmobile.API
 
+import com.example.hotelappmobile.API.APIConstants.Companion.HEADER_AUTH
 import com.example.hotelappmobile.Models.LoginBody
 import com.example.hotelappmobile.Models.LoginResponse
 import com.example.hotelappmobile.Models.User
@@ -16,5 +17,5 @@ interface AuthAPI {
     ): Response<LoginResponse>
 
     @POST("logout")
-    suspend fun logout(@Header("Authorization") token: String): Response<Any>
+    suspend fun logout(@Header(HEADER_AUTH) token: String): Response<Any>
 }

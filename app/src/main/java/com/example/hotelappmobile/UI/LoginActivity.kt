@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.errorMessage.observe(this, Observer { errorMessage->
             binding.tvErrorMessage.text = errorMessage
-            binding.tvErrorMessage.isVisible = true
         })
 
         viewModel.fullUser.observe(this, Observer { user->

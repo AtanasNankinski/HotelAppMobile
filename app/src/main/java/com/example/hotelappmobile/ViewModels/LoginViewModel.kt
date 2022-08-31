@@ -42,21 +42,24 @@ class LoginViewModel() : ViewModel() {
     fun login(body: LoginBody){
         viewModelScope.launch {
             val response = authRepository.login(body)
-
-            if (response.code() in 200..299){
-                if (response.body() != null){
-                    val id = response.body()!!.user.id
-                    val userName = response.body()!!.user.userName
-                    val email = response.body()!!.user.email
-                    val userType = response.body()!!.user.userType
-                    val token = response.body()!!.token
-                    fullUser.value = FullUser(id, userName, email, userType, token)
-                    errorMessage.value = ""
+            try {
+                if (response.code() in 200..299){
+                    if (response.body() != null){
+                        val id = response.body()!!.user.id
+                        val userName = response.body()!!.user.userName
+                        val email = response.body()!!.user.email
+                        val userType = response.body()!!.user.userType
+                        val token = response.body()!!.token
+                        fullUser.value = FullUser(id, userName, email, userType, token)
+                        errorMessage.value = ""
+                    }
+                }else if (response.code() == 401){
+                    errorMessage.value = "Wrong username or password"
+                }else if (response.code() in 400..512){
+                    errorMessage.value = "Error ${response.code()}"
                 }
-            }else if (response.code() == 401){
-                errorMessage.value = "Wrong username or password"
-            }else if (response.code() in 400..512){
-                errorMessage.value = "Error ${response.code()}"
+            } catch (e: Exception){
+                errorMessage.value = e.message
             }
         }
     }

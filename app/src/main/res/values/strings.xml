@@ -22,4 +22,6 @@
     <string name="email_login">Email</string>
     <!-- Register Owner screen strings -->
     <string name="error_text">Error getting the hotel data!</string>
+    <!-- Add Hotel Strings -->
+    <string name="add_hotel_label">Hotel Name</string>
 </resources>
