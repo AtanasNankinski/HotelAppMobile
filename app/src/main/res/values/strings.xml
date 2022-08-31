@@ -11,6 +11,7 @@
     <string name="menu_register_receptionist">Register Receptionist</string>
     <string name="menu_add_hotel">Add Hotel</string>
     <string name="menu_logout">Logout</string>
+    <string name="set_hotel_owner">Set Hotel Owner</string>
     <!-- Fragment Titles -->
     <string name="home">Home</string>
     <string name="register_owner">Register Owner</string>
