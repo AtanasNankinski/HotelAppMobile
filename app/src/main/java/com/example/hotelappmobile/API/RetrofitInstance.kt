@@ -16,4 +16,8 @@ object RetrofitInstance {
     val hotelActionsApi: HotelActionsAPI by lazy {
         retrofit.create(HotelActionsAPI::class.java)
     }
+
+    val authApi: AuthAPI by lazy {
+        retrofit.create(AuthAPI::class.java)
+    }
 }

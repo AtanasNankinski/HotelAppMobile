@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.hotelappmobile.Models.Hotel
 import com.example.hotelappmobile.Repositories.HotelActionsRepository
 import kotlinx.coroutines.launch
-import java.lang.Error
 
 class RegisterOwnerViewModel : ViewModel() {
     val repository: HotelActionsRepository = HotelActionsRepository()
@@ -16,12 +15,16 @@ class RegisterOwnerViewModel : ViewModel() {
         val hotelNamesTemp: MutableList<String> = mutableListOf()
 
         viewModelScope.launch {
-            val hotels: List<Hotel> = repository.getHotels()
+            val response = repository.getHotels()
 
-            for (hotel in hotels){
-                hotelNamesTemp.add(hotel.hotelName)
+            if (response.isSuccessful){
+                val hotels: List<Hotel> = response.body()!!
+
+                for (hotel in hotels){
+                    hotelNamesTemp.add(hotel.hotelName)
+                }
+                hotelNames.value = hotelNamesTemp
             }
-            hotelNames.value = hotelNamesTemp
         }
     }
 }

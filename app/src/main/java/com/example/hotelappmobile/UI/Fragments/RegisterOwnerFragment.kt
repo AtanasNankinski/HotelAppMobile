@@ -38,11 +38,6 @@ class RegisterOwnerFragment : Fragment() {
             }
         })
 
-        viewModel.errorMessage.observe(viewLifecycleOwner, Observer { error->
-            binding.tvErrorMessage.isVisible = true
-            binding.tvErrorMessage.text = error.toString()
-        })
-
         return view
     }
 }
