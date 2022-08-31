@@ -11,6 +11,10 @@ class HotelActionsRepository {
         return RetrofitInstance.hotelActionsApi.getHotels(token)
     }
 
+    suspend fun getHotelsByOwner(token: String, owner: Int): Response<List<Hotel>>{
+        return RetrofitInstance.hotelActionsApi.getHotelsByOwner(token, owner)
+    }
+
     suspend fun addHotel(token: String, hotel: Hotel): Response<ResponseMessage> {
         return RetrofitInstance.hotelActionsApi.addHotel(token, hotel)
     }

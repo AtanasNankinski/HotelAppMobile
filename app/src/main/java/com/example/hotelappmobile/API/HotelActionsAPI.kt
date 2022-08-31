@@ -9,11 +9,25 @@ import retrofit2.http.*
 
 interface HotelActionsAPI {
     @GET("hotels")
-    suspend fun getHotels(@Header(HEADER_AUTH) token: String): Response<List<Hotel>>
+    suspend fun getHotels(
+        @Header(HEADER_AUTH) token: String
+    ): Response<List<Hotel>>
+
+    @GET("get_hotels/{owner_id}")
+    suspend fun getHotelsByOwner(
+        @Header(HEADER_AUTH) token: String,
+        @Path("owner_id") owner: Int
+    ): Response<List<Hotel>>
 
     @POST("add_hotel")
-    suspend fun addHotel(@Header(HEADER_AUTH) token: String, @Body hotel: Hotel): Response<ResponseMessage>
+    suspend fun addHotel(
+        @Header(HEADER_AUTH) token: String,
+        @Body hotel: Hotel
+    ): Response<ResponseMessage>
 
     @PUT("set_hotel_owner")
-    suspend fun setHotelOwner(@Header(HEADER_AUTH) token: String, @Body owner: HotelOwner): Response<ResponseMessage>
+    suspend fun setHotelOwner(
+        @Header(HEADER_AUTH) token: String,
+        @Body owner: HotelOwner
+    ): Response<ResponseMessage>
 }

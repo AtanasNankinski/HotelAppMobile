@@ -22,4 +22,7 @@ interface AuthAPI {
 
     @POST("register_owner")
     suspend fun registerOwner(@Header(HEADER_AUTH) token: String, @Body body: HotelUser): Response<Any>
+
+    @POST("register_manager")
+    suspend fun registerManager(@Header(HEADER_AUTH) token: String, @Body body: HotelUser): Response<Any>
 }

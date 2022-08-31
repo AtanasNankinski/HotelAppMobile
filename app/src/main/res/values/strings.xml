@@ -29,4 +29,9 @@
     <string name="btn_add_owner">Add Owner</string>
     <!-- Add Hotel Strings -->
     <string name="add_hotel_label">Hotel Name</string>
+    <!-- Add Manager Screen Strings -->
+    <string name="btn_add_manager">Add Manager</string>
+    <string name="manager_name_label">Manager Name</string>
+    <string name="manager_email_label">Manager Email</string>
+    <string name="manager_password_label">Manager Password</string>
 </resources>

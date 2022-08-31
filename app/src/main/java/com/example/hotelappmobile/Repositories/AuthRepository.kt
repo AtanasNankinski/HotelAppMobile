@@ -19,4 +19,8 @@ class AuthRepository {
     suspend fun registerOwner(token: String, body: HotelUser): Response<Any>{
         return RetrofitInstance.authApi.registerOwner(token, body)
     }
+
+    suspend fun registerManager(token: String, body: HotelUser): Response<Any>{
+        return RetrofitInstance.authApi.registerManager(token, body)
+    }
 }
