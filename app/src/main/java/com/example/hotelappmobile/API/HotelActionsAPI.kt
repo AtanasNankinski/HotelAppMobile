@@ -13,11 +13,17 @@ interface HotelActionsAPI {
         @Header(HEADER_AUTH) token: String
     ): Response<List<Hotel>>
 
-    @GET("get_hotels/{owner_id}")
+    @GET("get_hotels_owner/{owner_id}")
     suspend fun getHotelsByOwner(
         @Header(HEADER_AUTH) token: String,
         @Path("owner_id") owner: Int
     ): Response<List<Hotel>>
+
+    @GET("get_hotels_manager/{manager_id}")
+    suspend fun getHotelByManager(
+        @Header(HEADER_AUTH) token: String,
+        @Path("manager_id") manager: Int
+    ): Response<Hotel>
 
     @POST("add_hotel")
     suspend fun addHotel(

@@ -63,9 +63,16 @@ class RegisterManagerFragment : Fragment() {
             if(viewModel.validateFields(name, email, password, hotel_name)){
                 val body: HotelUser = HotelUser(name, email, password, 3, hotel_name)
                 viewModel.registerManager(body, mainViewModel.user.value!!.token)
+                clearFields()
             }
         }
 
         return view
+    }
+
+    private fun clearFields(){
+        binding.etManagerName.text.clear()
+        binding.etManagerEmail.text.clear()
+        binding.etManagerPassword.text.clear()
     }
 }

@@ -34,4 +34,9 @@
     <string name="manager_name_label">Manager Name</string>
     <string name="manager_email_label">Manager Email</string>
     <string name="manager_password_label">Manager Password</string>
+    <!-- Add Receptionist Screen Strings -->
+    <string name="btn_add_receptionist">Add Receptionist</string>
+    <string name="receptionist_name_label">Receptionist Name</string>
+    <string name="receptionist_email_label">Receptionist Email</string>
+    <string name="receptionist_password_label">Receptionist Password</string>
 </resources>

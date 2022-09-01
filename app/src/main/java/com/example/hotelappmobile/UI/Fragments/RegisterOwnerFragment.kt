@@ -64,9 +64,16 @@ class RegisterOwnerFragment : Fragment() {
             if (viewModel.validateFields(name, email, password, hotel_name)){
                 val body: HotelUser = HotelUser(name, email, password, 2, hotel_name)
                 viewModel.registerOwner(body, mainViewModel.user.value!!.token)
+                clearFields()
             }
         }
 
         return view
+    }
+
+    private fun clearFields(){
+        binding.etOwnerName.text.clear()
+        binding.etOwnerEmail.text.clear()
+        binding.etOwnerPassword.text.clear()
     }
 }

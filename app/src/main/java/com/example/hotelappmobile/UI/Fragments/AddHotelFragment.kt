@@ -32,6 +32,7 @@ class AddHotelFragment : Fragment() {
             viewModel.apply {
                 if (isFieldValid(binding.etAddHotelField.text.toString())){
                     addHotel(mainViewModel.user.value!!.token, binding.etAddHotelField.text.toString())
+                    binding.etAddHotelField.text.clear()
                 }
             }
         }

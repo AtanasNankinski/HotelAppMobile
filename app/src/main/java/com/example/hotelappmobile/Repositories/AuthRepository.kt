@@ -1,10 +1,7 @@
 package com.example.hotelappmobile.Repositories
 
 import com.example.hotelappmobile.API.RetrofitInstance
-import com.example.hotelappmobile.Models.HotelUser
-import com.example.hotelappmobile.Models.LoginBody
-import com.example.hotelappmobile.Models.LoginResponse
-import com.example.hotelappmobile.Models.User
+import com.example.hotelappmobile.Models.*
 import retrofit2.Response
 
 class AuthRepository {
@@ -22,5 +19,9 @@ class AuthRepository {
 
     suspend fun registerManager(token: String, body: HotelUser): Response<Any>{
         return RetrofitInstance.authApi.registerManager(token, body)
+    }
+
+    suspend fun registerReceptionist(token: String, body: ReceptionistCall): Response<Any>{
+        return RetrofitInstance.authApi.registerReceptionist(token, body)
     }
 }

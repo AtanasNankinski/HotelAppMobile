@@ -62,6 +62,7 @@ class SetHotelOwnerFragment : Fragment() {
             if (viewModel.validateFields(email, hotelName)){
                 val owner: HotelOwner = HotelOwner(email, hotelName)
                 viewModel.setHotelOwner(mainViewModel.user.value!!.token, owner)
+                binding.etOwnerInput.text.clear()
             }
         }
 
