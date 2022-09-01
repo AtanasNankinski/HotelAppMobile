@@ -1,9 +1,7 @@
 package com.example.hotelappmobile.Repositories
 
 import com.example.hotelappmobile.API.RetrofitInstance
-import com.example.hotelappmobile.Models.Hotel
-import com.example.hotelappmobile.Models.HotelOwner
-import com.example.hotelappmobile.Models.ResponseMessage
+import com.example.hotelappmobile.Models.*
 import retrofit2.Response
 
 class HotelActionsRepository {
@@ -21,6 +19,10 @@ class HotelActionsRepository {
 
     suspend fun addHotel(token: String, hotel: Hotel): Response<ResponseMessage> {
         return RetrofitInstance.hotelActionsApi.addHotel(token, hotel)
+    }
+
+    suspend fun createClient(token: String, client: ClientRequest): Response<ResponseMessage>{
+        return RetrofitInstance.hotelActionsApi.createClient(token, client)
     }
 
     suspend fun setHotelOwner(token: String, owner: HotelOwner): Response<ResponseMessage>{

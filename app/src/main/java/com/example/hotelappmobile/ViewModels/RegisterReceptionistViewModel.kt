@@ -4,15 +4,11 @@ import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotelappmobile.Models.Hotel
-import com.example.hotelappmobile.Models.HotelUser
 import com.example.hotelappmobile.Models.ReceptionistCall
 import com.example.hotelappmobile.Repositories.AuthRepository
-import com.example.hotelappmobile.Repositories.HotelActionsRepository
 import kotlinx.coroutines.launch
 
 class RegisterReceptionistViewModel : ViewModel() {
-    private val hotelRepository: HotelActionsRepository = HotelActionsRepository()
     private val authRepository: AuthRepository = AuthRepository()
     val errorMessage: MutableLiveData<String> = MutableLiveData("")
     val isCallSuccessfull: MutableLiveData<Boolean> = MutableLiveData(false)

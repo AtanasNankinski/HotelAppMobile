@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HotelAppMobile</string>
+    <string name="app_name">Hotel App</string>
 
     <!-- Used in Main Activity -->
     <string name="open">Open</string>
@@ -12,6 +12,7 @@
     <string name="menu_add_hotel">Add Hotel</string>
     <string name="menu_logout">Logout</string>
     <string name="set_hotel_owner">Set Hotel Owner</string>
+    <string name="create_client">Create Client</string>
     <!-- Fragment Titles -->
     <string name="home">Home</string>
     <string name="register_owner">Register Owner</string>
@@ -39,4 +40,9 @@
     <string name="receptionist_name_label">Receptionist Name</string>
     <string name="receptionist_email_label">Receptionist Email</string>
     <string name="receptionist_password_label">Receptionist Password</string>
+    <!-- Create Client Screen Strings -->
+    <string name="client_fname_label">Client First Name</string>
+    <string name="client_lname_label">Client Last Name</string>
+    <string name="client_email_label">Client Email</string>
+    <string name="btn_create_client_label">Create Client</string>
 </resources>
