@@ -1,5 +1,6 @@
 package com.example.hotelappmobile.UI
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        val sharedPreference =  getSharedPreferences("USER_PREFERENCE",Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
         val view = binding.root
         setContentView(view)
 
@@ -63,6 +66,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemLogout -> {
                     viewModel.logout()
                     viewModel.user.value!!.token
+                    editor.clear()
+                    editor.commit()
                     startActivity(loginIntent)
                 }
             }
