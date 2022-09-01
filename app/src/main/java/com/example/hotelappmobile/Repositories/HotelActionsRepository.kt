@@ -17,12 +17,20 @@ class HotelActionsRepository {
         return RetrofitInstance.hotelActionsApi.getHotelByManager(token, manager)
     }
 
+    suspend fun getHotelByReceptionist(token: String, receptionistId: Int): Response<Hotel>{
+        return RetrofitInstance.hotelActionsApi.getHotelByReceptionist(token, receptionistId)
+    }
+
     suspend fun addHotel(token: String, hotel: Hotel): Response<ResponseMessage> {
         return RetrofitInstance.hotelActionsApi.addHotel(token, hotel)
     }
 
     suspend fun createClient(token: String, client: ClientRequest): Response<ResponseMessage>{
         return RetrofitInstance.hotelActionsApi.createClient(token, client)
+    }
+
+    suspend fun createReservation(token: String, reservation: ReservationRequest): Response<ResponseMessage>{
+        return RetrofitInstance.hotelActionsApi.createReservation(token, reservation)
     }
 
     suspend fun setHotelOwner(token: String, owner: HotelOwner): Response<ResponseMessage>{

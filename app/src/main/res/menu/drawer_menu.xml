@@ -31,6 +31,11 @@
             android:id="@+id/itemCreateClient"
             android:title="@string/create_client"
             android:icon="@drawable/ic_create_client"/>
+
+        <item
+            android:id="@+id/itemCreateReservation"
+            android:title="@string/create_reservation"
+            android:icon="@drawable/ic_reservation"/>
         <item
             android:id="@+id/itemLogout"
             android:title="@string/menu_logout"

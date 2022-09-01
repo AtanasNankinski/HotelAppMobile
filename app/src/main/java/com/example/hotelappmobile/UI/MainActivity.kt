@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemSetHotelOwner -> replaceFragment(SetHotelOwnerFragment(), getString(R.string.set_hotel_owner))
                 R.id.itemAddHotel -> replaceFragment(AddHotelFragment(), getString(R.string.add_hotel))
                 R.id.itemCreateClient -> replaceFragment(CreateClientFragment(), getString(R.string.create_client))
+                R.id.itemCreateReservation -> replaceFragment(CreateReservationFragment(), getString(R.string.create_reservation))
                 R.id.itemLogout -> {
                     viewModel.logout()
                     viewModel.user.value!!.token
@@ -116,6 +117,7 @@ class MainActivity : AppCompatActivity() {
                 navView.menu.findItem(R.id.itemRegisterManager).isVisible = false
                 navView.menu.findItem(R.id.itemRegisterReceptionist).isVisible = false
                 navView.menu.findItem(R.id.itemCreateClient).isVisible = false
+                navView.menu.findItem(R.id.itemCreateReservation).isVisible = false
             }
             2 -> {
                 navView.menu.findItem(R.id.itemRegisterOwner).isVisible = false
@@ -123,6 +125,7 @@ class MainActivity : AppCompatActivity() {
                 navView.menu.findItem(R.id.itemAddHotel).isVisible = false
                 navView.menu.findItem(R.id.itemSetHotelOwner).isVisible = false
                 navView.menu.findItem(R.id.itemCreateClient).isVisible = false
+                navView.menu.findItem(R.id.itemCreateReservation).isVisible = false
             }
             3 -> {
                 navView.menu.findItem(R.id.itemRegisterOwner).isVisible = false
@@ -130,6 +133,7 @@ class MainActivity : AppCompatActivity() {
                 navView.menu.findItem(R.id.itemAddHotel).isVisible = false
                 navView.menu.findItem(R.id.itemSetHotelOwner).isVisible = false
                 navView.menu.findItem(R.id.itemCreateClient).isVisible = false
+                navView.menu.findItem(R.id.itemCreateReservation).isVisible = false
             }
             4 -> {
                 navView.menu.findItem(R.id.itemRegisterOwner).isVisible = false

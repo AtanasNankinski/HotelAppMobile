@@ -23,6 +23,12 @@ interface HotelActionsAPI {
         @Path("manager_id") manager: Int
     ): Response<Hotel>
 
+    @GET("get_hotel_receptionist/{receptionist_id}")
+    suspend fun getHotelByReceptionist(
+        @Header(HEADER_AUTH) token: String,
+        @Path("receptionist_id") receptionistId: Int
+    ): Response<Hotel>
+
     @POST("add_hotel")
     suspend fun addHotel(
         @Header(HEADER_AUTH) token: String,
@@ -33,6 +39,12 @@ interface HotelActionsAPI {
     suspend fun createClient(
         @Header(HEADER_AUTH) token: String,
         @Body client: ClientRequest
+    ): Response<ResponseMessage>
+
+    @POST("create_reservation")
+    suspend fun createReservation(
+        @Header(HEADER_AUTH) token: String,
+        @Body reservation: ReservationRequest
     ): Response<ResponseMessage>
 
     @PUT("set_hotel_owner")

@@ -40,7 +40,7 @@ class CreateClientFragment : Fragment() {
             })
         }
 
-        binding.btnAddManager.setOnClickListener {
+        binding.btnCreateClient.setOnClickListener {
             val firstName: String = binding.etClientFirstName.text.toString()
             val lastName: String = binding.etClientLastName.text.toString()
             val email: String = binding.etClientEmail.text.toString()
